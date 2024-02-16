@@ -1,0 +1,22 @@
+def binary_search(target, list):
+    list.sort()
+    low = 0
+    high = len(list) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        mid_value = list[mid]
+        if mid_value == target:
+            return mid
+        elif mid_value < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+list = [1, 2, 2, 4, 5, 5, 7, 6, 9, 8, 0]
+value = 7
+result = binary_search(value, list)
+if result != -1:
+    print("Target value",value," found at index",result)
+else:
+    print(f"Target value ",value," not found.")
